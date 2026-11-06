@@ -155,7 +155,7 @@ td.r{color:var(--blue);font-weight:600}
   <button data-view="single" aria-current="true">Single scan</button>
   <button data-view="batch">Batch scan</button>
   <button data-view="method">Methodology</button>
-  <button data-view="team">Team</button>
+  <!-- <button data-view="team">Team</button> -->
 </nav>
 
 <main>
@@ -398,25 +398,25 @@ $('dlBtn').addEventListener('click', () => {
 /* ---------- Team photos ----------
    Put photos in an "images" folder next to this page using these file names (.jpg),
    or click any box on the Team page to pick a photo from your computer. */
-const MEMBERS = [
-  ['Aurovind Maharana','aurovind-maharana'], ['Kalahasti Sai Dhanush','kalahasti-sai-dhanush'],
-  ['Pritam Mohanty','pritam-mohanty'], ['Manas Panigrahi','manas-panigrahi']
-];
-$('members').innerHTML = MEMBERS.map(([n,f]) => {
-  const ini = n.split(' ').map(w => w[0]).slice(0,2).join('');
-  return `<div class="member"><label class="photo" title="Add photo of ${n}">
-    <img alt="${n}" src="${'/static/images/' + f + '.jpg'}"><span class="ph">${ini}<small>Add photo</small></span>
-    <input type="file" accept="image/*" hidden></label><div class="mname">${n}</div></div>`;
-}).join('');
-document.querySelectorAll('.photo').forEach(box => {
-  const img = box.querySelector('img'), inp = box.querySelector('input');
-  img.addEventListener('load', () => box.classList.add('has'));
-  img.addEventListener('error', () => box.classList.remove('has'));
-  inp.addEventListener('change', () => {
-    const f = inp.files[0]; if(!f) return;
-    const rd = new FileReader(); rd.onload = () => { img.src = rd.result; }; rd.readAsDataURL(f);
-  });
-});
+// const MEMBERS = [
+//   ['Aurovind Maharana','aurovind-maharana'], ['Kalahasti Sai Dhanush','kalahasti-sai-dhanush'],
+//   ['Pritam Mohanty','pritam-mohanty'], ['Manas Panigrahi','manas-panigrahi']
+// ];
+// $('members').innerHTML = MEMBERS.map(([n,f]) => {
+//   const ini = n.split(' ').map(w => w[0]).slice(0,2).join('');
+//   return `<div class="member"><label class="photo" title="Add photo of ${n}">
+//     <img alt="${n}" src="${'/static/images/' + f + '.jpg'}"><span class="ph">${ini}<small>Add photo</small></span>
+//     <input type="file" accept="image/*" hidden></label><div class="mname">${n}</div></div>`;
+// }).join('');
+// document.querySelectorAll('.photo').forEach(box => {
+//   const img = box.querySelector('img'), inp = box.querySelector('input');
+//   img.addEventListener('load', () => box.classList.add('has'));
+//   img.addEventListener('error', () => box.classList.remove('has'));
+//   inp.addEventListener('change', () => {
+//     const f = inp.files[0]; if(!f) return;
+//     const rd = new FileReader(); rd.onload = () => { img.src = rd.result; }; rd.readAsDataURL(f);
+//   });
+// });
 
 /* ---------- Batch scan UI ---------- */
 let batchRows = [];
