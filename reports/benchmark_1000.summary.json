@@ -1,0 +1,25 @@
+{
+  "input_rows": 1000,
+  "valid_rows": 1000,
+  "invalid_rows": 0,
+  "high_risk_rows": 559,
+  "csv_output": "C:\\New folder\\reports\\benchmark_1000.csv",
+  "json_output": "C:\\New folder\\reports\\benchmark_1000.json",
+  "elapsed_seconds": 15.696662000000288,
+  "throughput_rows_per_second": 63.70781252727374,
+  "median_processing_ms": 15.686,
+  "p95_processing_ms": 21.47034999999999,
+  "model_version": "url-model-7bb3106f2411",
+  "model_type": "logistic_regression",
+  "reference_count": 200,
+  "timing_scope": "elapsed time includes scoring and output serialization; model and input loading are excluded",
+  "warmup": "none; percentile statistics include the first inference",
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "logical_cpu_count": 16,
+    "total_ram_gb": 15.71
+  },
+  "summary_output": "C:\\New folder\\reports\\benchmark_1000.summary.json"
+}

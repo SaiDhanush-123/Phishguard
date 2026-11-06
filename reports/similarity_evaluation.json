@@ -1,0 +1,130 @@
+{
+  "caution_threshold": 0.3582954588532448,
+  "reference_group_leakage": false,
+  "reference_sha256": "a6e2d6c7ba380f9dc25e9755fadd551e420c597163e7f123185df9242a7ede96",
+  "registry_version": "sha256:a6e2d6c7ba380f9d",
+  "row_count": 3600,
+  "schema_version": "1.0",
+  "seed": 42,
+  "split_counts": {
+    "test": 720,
+    "tuning": 2160,
+    "validation": 720
+  },
+  "synthetic_sha256": "f3f319158d482c98e92a477d0c24cf6acdd4b04a6f688e9541ad3c368e0b7df8",
+  "test_by_transformation": {
+    "alternate_tld": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 40
+    },
+    "ascii_confusable": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 40
+    },
+    "deceptive_subdomain": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 40
+    },
+    "deletion": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 40
+    },
+    "exact_reference": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 0
+    },
+    "insertion": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 40
+    },
+    "legitimate_subdomain": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 0
+    },
+    "other_reference_1": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 0
+    },
+    "other_reference_2": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 0
+    },
+    "other_reference_3": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 0
+    },
+    "other_reference_4": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 0
+    },
+    "other_reference_5": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 0
+    },
+    "other_reference_6": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 0
+    },
+    "prefix_suffix": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 40
+    },
+    "substitution": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 40
+    },
+    "transposition": {
+      "accuracy": 0.825,
+      "count": 40,
+      "detected_positive_count": 33
+    },
+    "unicode_confusable": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 40
+    },
+    "unrelated": {
+      "accuracy": 1.0,
+      "count": 40,
+      "detected_positive_count": 0
+    }
+  },
+  "test_metrics": {
+    "confusion_matrix": {
+      "fn": 7,
+      "fp": 0,
+      "tn": 360,
+      "tp": 353
+    },
+    "f1": 0.9901823281907434,
+    "f2": 0.9843837144450641,
+    "false_positive_rate": 0.0,
+    "nearest_reference_top1_accuracy": 0.925,
+    "precision": 1.0,
+    "recall": 0.9805555555555555
+  },
+  "threshold": 0.3981060653924942,
+  "tuning_f2": 1.0,
+  "validation_f2": 1.0,
+  "weights": {
+    "confusable": 0.3,
+    "jaro_winkler": 0.1,
+    "levenshtein": 0.1,
+    "ngram": 0.5
+  }
+}

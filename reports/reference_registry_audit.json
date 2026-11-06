@@ -1,0 +1,23 @@
+{
+  "active_verified_count": 200,
+  "categories": {
+    "delivery": 15,
+    "e-commerce": 25,
+    "education": 20,
+    "finance": 50,
+    "government": 25,
+    "social": 20,
+    "technology": 25,
+    "travel": 20
+  },
+  "errors": [],
+  "regions": {
+    "global": 98,
+    "india": 102
+  },
+  "registry": "C:\\New folder\\data\\reference_domains.csv",
+  "row_count": 200,
+  "sha256": "a6e2d6c7ba380f9dc25e9755fadd551e420c597163e7f123185df9242a7ede96",
+  "unique_domain_count": 200,
+  "valid": true
+}

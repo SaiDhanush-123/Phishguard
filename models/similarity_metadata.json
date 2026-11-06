@@ -1,0 +1,31 @@
+{
+  "caution_threshold": 0.3582954588532448,
+  "reference_sha256": "a6e2d6c7ba380f9dc25e9755fadd551e420c597163e7f123185df9242a7ede96",
+  "registry_version": "sha256:a6e2d6c7ba380f9d",
+  "schema_version": "1.0",
+  "seed": 42,
+  "synthetic_sha256": "f3f319158d482c98e92a477d0c24cf6acdd4b04a6f688e9541ad3c368e0b7df8",
+  "test_metrics": {
+    "confusion_matrix": {
+      "fn": 7,
+      "fp": 0,
+      "tn": 360,
+      "tp": 353
+    },
+    "f1": 0.9901823281907434,
+    "f2": 0.9843837144450641,
+    "false_positive_rate": 0.0,
+    "nearest_reference_top1_accuracy": 0.925,
+    "precision": 1.0,
+    "recall": 0.9805555555555555
+  },
+  "threshold": 0.3981060653924942,
+  "tuning_f2": 1.0,
+  "validation_f2": 1.0,
+  "weights": {
+    "confusable": 0.3,
+    "jaro_winkler": 0.1,
+    "levenshtein": 0.1,
+    "ngram": 0.5
+  }
+}

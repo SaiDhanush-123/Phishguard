@@ -1,0 +1,39 @@
+{
+  "negative_count": 1800,
+  "output": "C:\\New folder\\data\\synthetic_lookalikes.csv",
+  "positive_count": 1800,
+  "reference_count": 200,
+  "row_count": 3600,
+  "seed": 42,
+  "split_counts": {
+    "test": 720,
+    "tuning": 2160,
+    "validation": 720
+  },
+  "transformation_counts": {
+    "alternate_tld": 200,
+    "ascii_confusable": 200,
+    "deceptive_subdomain": 200,
+    "deletion": 200,
+    "exact_reference": 200,
+    "insertion": 200,
+    "legitimate_subdomain": 200,
+    "other_reference_1": 200,
+    "other_reference_2": 200,
+    "other_reference_3": 200,
+    "other_reference_4": 200,
+    "other_reference_5": 200,
+    "other_reference_6": 200,
+    "prefix_suffix": 200,
+    "substitution": 200,
+    "transposition": 200,
+    "unicode_confusable": 200,
+    "unrelated": 200
+  },
+  "validation": {
+    "positive_transformation_count": 9,
+    "reference_count": 200,
+    "reference_group_leakage": false,
+    "valid": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "seed": 42,
+  "public_suffix_extra": ["bank.in"],
+  "paths": {
+    "dataset": "PhiUSIIL_Phishing_URL_Dataset.csv",
+    "references": "data/reference_domains.csv",
+    "synthetic_pairs": "data/synthetic_lookalikes.csv",
+    "model": "models/url_model.joblib",
+    "model_metadata": "models/model_metadata.json",
+    "similarity_metadata": "models/similarity_metadata.json"
+  },
+  "features": {
+    "version": "url-lexical-v1",
+    "suspicious_tokens": [
+      "account",
+      "auth",
+      "banking",
+      "confirm",
+      "credential",
+      "login",
+      "password",
+      "recover",
+      "secure",
+      "signin",
+      "support",
+      "unlock",
+      "update",
+      "validate",
+      "verification",
+      "verify",
+      "wallet"
+    ]
+  },
+  "model": {
+    "fallback_threshold": 0.5,
+    "caution_ratio": 0.75
+  },
+  "similarity": {
+    "weights": {
+      "levenshtein": 0.35,
+      "jaro_winkler": 0.25,
+      "ngram": 0.25,
+      "confusable": 0.15
+    },
+    "threshold": 0.8,
+    "caution_threshold": 0.65
+  }
+}

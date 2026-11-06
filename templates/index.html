@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhishGuard AI</title>
+<style>
+:root{
+  --blue:#1d4ed8; --blue-dark:#1e3a8a; --blue-soft:#e6eefe; --blue-line:#c1d3fa;
+  --ink:#0f172a; --muted:#5b6b83; --line:#d9e3f5; --bg:#f1f6ff; --surface:#ffffff;
+  --btn:#1d4ed8; --btn-hover:#1e3a8a; --on-btn:#ffffff; --high:#1e3a8a; --caution:#8a5b00; --caution-soft:#fdf3e0;
+  color-scheme:light;
+  --font:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+}
+[data-theme="dark"]{
+  color-scheme:dark;
+  --blue:#7aa6ff; --blue-dark:#b3ccff; --blue-soft:#15223f; --blue-line:#2b4377;
+  --ink:#e6edf8; --muted:#94a3b8; --line:#22304d; --bg:#0b1220; --surface:#111a2e;
+  --btn:#3b6df0; --btn-hover:#5683f5; --on-btn:#ffffff; --high:#3b6df0; --caution:#e8b559; --caution-soft:#2b2210;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.55}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* Top bar */
+header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;height:64px;padding:0 20px;background:var(--surface);border-bottom:1px solid var(--line)}
+.burger{width:40px;height:40px;border:1px solid var(--line);background:var(--surface);border-radius:8px;display:grid;place-content:center;gap:5px}
+.burger span{display:block;width:18px;height:2px;background:var(--blue-dark);border-radius:2px}
+.burger:hover{background:var(--blue-soft)}
+.brand{display:flex;flex-direction:column;line-height:1.15}
+.brand .name{font-size:1.5rem;font-weight:600;color:var(--blue-dark);letter-spacing:.2px}
+.brand small{font-weight:400;color:var(--muted);font-size:.78rem;margin-top:2px}
+.theme{margin-left:auto;width:40px;height:40px;border:1px solid var(--line);background:var(--surface);border-radius:8px;display:grid;place-content:center;color:var(--blue-dark)}
+.theme:hover{background:var(--blue-soft)}
+.theme svg{width:20px;height:20px}
+.theme .sun{display:none}
+[data-theme="dark"] .theme .sun{display:block}
+[data-theme="dark"] .theme .moon{display:none}
+
+/* Menu list */
+.menu{position:fixed;top:64px;left:20px;width:230px;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(15,23,42,.08);padding:6px;display:none;z-index:30}
+.menu.open{display:block}
+.menu button{display:block;width:100%;text-align:left;padding:10px 12px;border:0;background:none;border-radius:6px;color:var(--ink)}
+.menu button:hover{background:var(--blue-soft)}
+.menu button[aria-current="true"]{background:var(--blue-soft);color:var(--blue);font-weight:600}
+
+main{max-width:760px;margin:0 auto;padding:0 20px}
+.view{display:none}
+.view.active{display:block}
+
+/* Front page */
+.hero{min-height:calc(100vh - 64px);display:flex;flex-direction:column;justify-content:center;padding:0 0 8vh;text-align:center}
+h1{font-size:2.2rem;font-weight:600;color:var(--blue-dark);letter-spacing:-.5px}
+.hero p{margin-top:8px;color:var(--muted)}
+.scan{display:flex;gap:10px;margin-top:28px}
+.scan input,textarea{flex:1;width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:10px;font:inherit;color:var(--ink);background:var(--surface)}
+.scan input:focus,textarea:focus{border-color:var(--blue);outline:3px solid var(--blue-soft)}
+.btn{padding:0 24px;min-height:48px;border-radius:10px;border:1px solid var(--btn);background:var(--btn);color:var(--on-btn);font-weight:600}
+.btn:hover{background:var(--btn-hover);border-color:var(--btn-hover)}
+.btn:disabled{opacity:.6;cursor:default}
+.btn.ghost{background:var(--surface);color:var(--blue)}
+.btn.ghost:hover{background:var(--blue-soft)}
+.err{color:var(--blue-dark);font-size:.9rem;margin-top:10px;min-height:1.2em}
+
+/* Result */
+#result{display:none;padding:48px 0 64px;text-align:center}
+#result.show{display:block}
+.host{font-size:1.25rem;font-weight:600;word-break:break-all}
+.verdict{display:inline-block;margin-top:8px;padding:3px 12px;border-radius:99px;font-size:.85rem;font-weight:600;border:1px solid var(--blue-line);background:var(--blue-soft);color:var(--blue)}
+.verdict.high{background:var(--high);border-color:var(--high);color:var(--on-btn)}
+.verdict.caution{background:var(--caution-soft);border-color:var(--caution);color:var(--caution)}
+.took{margin-top:8px;font-size:.85rem;color:var(--muted)}
+.gauges{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin:28px 0 8px}
+.gauge{width:170px}
+.gauge svg{width:100%;height:auto;display:block}
+.gauge .track{stroke:var(--line)}
+.gauge .fill{stroke:var(--blue);transition:stroke-dashoffset .9s ease}
+.gauge.dark .fill{stroke:var(--blue-dark)}
+.gauge .num{font-size:30px;font-weight:600;fill:var(--ink)}
+.gauge .sub{font-size:10px;fill:var(--muted)}
+.gauge p{font-size:.85rem;color:var(--muted);margin-top:6px}
+.actions{display:flex;justify-content:center;gap:10px;margin-top:22px;flex-wrap:wrap}
+#details,#tech{display:none;text-align:left;margin-top:28px;border-top:1px solid var(--line);padding-top:20px}
+#details.show,#tech.show{display:block}
+#details h3,#tech h3{font-size:1rem;color:var(--blue-dark);margin-bottom:10px}
+.evidence{padding:14px 16px;background:var(--blue-soft);border-radius:8px;color:var(--blue-dark);font-size:.93rem}
+.techbox{margin-top:16px;border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:grid;grid-template-columns:1fr 1fr;gap:24px;background:var(--surface)}
+.techbox h4{font-size:.95rem;margin-bottom:10px}
+.techbox li{list-style:none;padding:6px 0;font-size:.92rem}
+.techbox code{font-family:ui-monospace,Consolas,monospace;font-size:.82rem;color:var(--muted);word-break:break-all}
+.foot{margin-top:18px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
+.signals{list-style:none}
+.signals li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.93rem}
+.signals li span:last-child{color:var(--blue);font-weight:600;white-space:nowrap}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.compare div{border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:.9rem}
+.compare b{display:block;font-size:.8rem;color:var(--muted);font-weight:500;margin-bottom:2px}
+
+/* Team */
+.page.team{width:min(1000px,calc(100vw - 40px));margin-left:50%;transform:translateX(-50%);padding-top:56px}
+.page.team h2{font-family:Georgia,"Times New Roman",serif;font-size:2.6rem;font-weight:700;color:var(--ink);letter-spacing:-.3px;margin-bottom:40px}
+.members{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px}
+.photo{display:block;position:relative;aspect-ratio:4/5;margin-bottom:16px;border:1px dashed var(--blue-line);border-radius:10px;background:var(--blue-soft);overflow:hidden;cursor:pointer}
+.photo:hover{border-color:var(--blue)}
+.photo img{display:none;width:100%;height:100%;object-fit:cover}
+.photo .ph{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:var(--blue);font-size:1.7rem;font-weight:600}
+.photo .ph small{display:block;font-size:.78rem;font-weight:400;color:var(--muted)}
+.photo.has{border-style:solid}
+.photo.has img{display:block}
+.photo.has .ph{display:none}
+.mname{border-top:1px solid var(--line);padding-top:18px;font-weight:600;font-size:1.1rem}
+
+/* Batch + methodology */
+.page{padding:48px 0 64px}
+.page h2{font-size:1.5rem;color:var(--blue-dark);margin-bottom:6px}
+.page>p{color:var(--muted);margin-bottom:18px}
+textarea{min-height:140px;resize:vertical;font-family:ui-monospace,Consolas,monospace;font-size:.9rem}
+.row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+table{width:100%;border-collapse:collapse;margin-top:22px;font-size:.92rem;display:none}
+table.show{display:table}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:500;font-size:.82rem}
+td.r{color:var(--blue);font-weight:600}
+.steps{list-style:none;margin-top:8px}
+.steps li{padding:14px 0;border-bottom:1px solid var(--line)}
+.steps b{color:var(--blue-dark);display:block}
+.steps span{color:var(--muted);font-size:.93rem}
+.note{margin-top:20px;padding:14px 16px;background:var(--blue-soft);border-radius:10px;font-size:.9rem;color:var(--blue-dark)}
+
+@media(max-width:560px){
+  .scan{flex-direction:column}
+  .btn{min-height:48px}
+  .compare,.techbox{grid-template-columns:1fr}
+  .brand .name{font-size:1.3rem}
+}
+@media(prefers-reduced-motion:reduce){.gauge .fill{transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="brand"><span class="name">PhishGuard AI</span><small>Offline URL analysis</small></div>
+  <button class="theme" id="themeBtn" type="button" aria-label="Switch theme">
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+  </button>
+</header>
+
+<nav class="menu" id="menu" aria-label="Main menu">
+  <button data-view="single" aria-current="true">Single scan</button>
+  <button data-view="batch">Batch scan</button>
+  <button data-view="method">Methodology</button>
+  <button data-view="team">Team</button>
+</nav>
+
+<main>
+  <!-- SINGLE SCAN (front page) -->
+  <section class="view active" id="view-single">
+    <div class="hero" id="hero">
+      <h1>Check a link before you</h1> trust it</h1>
+      <p>Paste a URL. The AI model compares it with known websites and gives a risk score.</p>
+      <form class="scan" id="scanForm" novalidate>
+        <input id="urlInput" type="text" placeholder="Paste the URL here" aria-label="URL or domain" autocomplete="off">
+        <button class="btn" type="submit" id="scanBtn">Analyze</button>
+      </form>
+      <div class="err" id="err" role="alert"></div>
+    </div>
+
+    <div id="result" aria-live="polite">
+      <div class="host" id="rHost"></div>
+      <span class="verdict" id="rVerdict"></span>
+      <div class="took" id="rTime"></div>
+
+      <div class="gauges">
+        <div class="gauge dark">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="track" cx="60" cy="60" r="48" fill="none" stroke-width="10"/>
+            <circle class="fill" id="g1" cx="60" cy="60" r="48" fill="none" stroke-width="10" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+            <text class="num" id="n1" x="60" y="64" text-anchor="middle">0</text>
+            <text class="sub" x="60" y="80" text-anchor="middle">out of 100</text>
+          </svg>
+          <p>Phishing score</p>
+        </div>
+        <div class="gauge">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="track" cx="60" cy="60" r="48" fill="none" stroke-width="10"/>
+            <circle class="fill" id="g2" cx="60" cy="60" r="48" fill="none" stroke-width="10" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+            <text class="num" id="n2" x="60" y="64" text-anchor="middle">0</text>
+            <text class="sub" x="60" y="80" text-anchor="middle">out of 100</text>
+          </svg>
+          <p>Similarity to known sites</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" id="moreBtn" type="button">Get more details</button>
+        <button class="btn ghost" id="techBtn" type="button">Technical analysis</button>
+        <button class="btn ghost" id="dlBtn" type="button">Download report</button>
+        <button class="btn ghost" id="newBtn" type="button">Scan another</button>
+      </div>
+
+      <div id="details">
+        <h3>Why this score</h3>
+        <ul class="signals" id="signals"></ul>
+        <div class="compare">
+          <div><b>Submitted domain</b><span id="cSub"></span></div>
+          <div><b>Closest known domain</b><span id="cRef"></span></div>
+        </div>
+      </div>
+
+      <div id="tech">
+        <h3>Evidence</h3>
+        <div class="evidence" id="tEv"></div>
+        <div class="techbox">
+          <div><h4>Similarity components</h4><ul id="tSim"></ul></div>
+          <div><h4>Artifact identity</h4><ul id="tId"></ul></div>
+        </div>
+        <p class="foot" id="tLimit">Scores are screening evidence, not proof that a site is safe or malicious.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BATCH SCAN -->
+  <section class="view" id="view-batch">
+    <div class="page">
+      <h2>Batch scan</h2>
+      <p>Enter one URL per line to analyze several at once.</p>
+      <textarea id="batchInput" placeholder="example.com&#10;paypa1-login.net&#10;..." aria-label="URLs, one per line"></textarea>
+      <div class="row">
+        <button class="btn" id="batchBtn" type="button">Analyze all</button>
+        <button class="btn ghost" id="batchDl" type="button" style="display:none">Download CSV</button>
+      </div>
+      <div class="err" id="batchErr" role="alert"></div>
+      <table id="batchTable">
+        <thead><tr><th>URL</th><th>Phishing score</th><th>Closest site</th><th>Result</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section class="view" id="view-method">
+    <div class="page">
+      <h2>Methodology</h2>
+      <p>How PhishGuard AI reaches a risk score.</p>
+      <ol class="steps">
+        <li><b>Read the URL text only</b><span>The link is split into parts such as the domain, path and symbols. The website is never opened.</span></li>
+        <li><b>Check for warning signs</b><span></span>Length, extra dashes, odd characters, many subdomains and words like "login" or "verify".</span></li>
+        <li><b>Compare with known websites</b><span>The domain is measured against a list of trusted brands to catch lookalikes.</span></li>
+        <li><b>Score with a machine learning model</b><span>The signals are combined into a phishing score from 0 to 100.</span></li>
+        <li><b>Explain the result</b><span>Each score comes with the reasons behind it.</span></li>
+      </ol>
+      <div class="note">Everything runs locally. Scores are a guide, not a final verdict.</div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="view" id="view-team">
+    <div class="page team">
+      <h2>Team Hacksmiths</h2>
+      <div class="members" id="members"></div>
+    </div>
+  </section>
+</main>
+
+<script>
+/* ---------- Theme ---------- */
+const root = document.documentElement;
+let saved = null;
+try { saved = localStorage.getItem('pg-theme'); } catch(e) {}
+if(saved === 'dark') root.setAttribute('data-theme','dark');
+document.getElementById('themeBtn').addEventListener('click', () => {
+  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', next);
+  try { localStorage.setItem('pg-theme', next); } catch(e) {}
+});
+
+/* ---------- Navigation ---------- */
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+function toggleMenu(open){
+  const o = open ?? !menu.classList.contains('open');
+  menu.classList.toggle('open', o);
+  burger.setAttribute('aria-expanded', o);
+}
+burger.addEventListener('click', e => { e.stopPropagation(); toggleMenu(); });
+document.addEventListener('click', e => { if(!menu.contains(e.target)) toggleMenu(false); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') toggleMenu(false); });
+menu.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+  show(b.dataset.view); toggleMenu(false);
+}));
+function show(name){
+  document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === 'view-' + name));
+  menu.querySelectorAll('button').forEach(b => b.setAttribute('aria-current', b.dataset.view === name));
+  window.scrollTo(0, 0);
+}
+
+/* ---------- Analysis ----------
+   Real analysis runs server-side in the PhishGuard detection pipeline
+   (trained URL model + verified-domain similarity engine). The frontend
+   only calls the JSON API and renders whatever it returns. */
+async function analyzeURL(raw){
+  const res = await fetch('/api/scan', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({url: raw})
+  });
+  const data = await res.json();
+  if(!res.ok || !data.valid) return { ok:false, error: data.error || 'Enter a valid URL or domain, for example example.com' };
+  return { ok:true, data };
+}
+async function analyzeBatch(urls){
+  const res = await fetch('/api/batch', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({urls})
+  });
+  const data = await res.json();
+  if(!res.ok) return { ok:false, error: data.error || 'The batch could not be analyzed.' };
+  return { ok:true, data };
+}
+
+/* ---------- Single scan UI ---------- */
+const $ = id => document.getElementById(id);
+const C = 2 * Math.PI * 48;
+let current = null;
+
+function setGauge(id, numId, val){
+  const g = $(id); g.style.strokeDasharray = C;
+  g.style.strokeDashoffset = C;
+  requestAnimationFrame(() => g.style.strokeDashoffset = C * (1 - val / 100));
+  $(numId).textContent = val;
+}
+$('scanForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const value = $('urlInput').value;
+  $('scanBtn').disabled = true;
+  $('scanBtn').textContent = 'Analyzing...';
+  let outcome;
+  try {
+    outcome = await analyzeURL(value);
+  } catch (err) {
+    outcome = { ok:false, error: 'Could not reach the analysis service. Please try again.' };
+  }
+  $('scanBtn').disabled = false;
+  $('scanBtn').textContent = 'Analyze';
+  if(!outcome.ok){ $('err').textContent = outcome.error; return; }
+  $('err').textContent = '';
+  const r = outcome.data;
+  current = r;
+  // Only the result is shown after Analyze
+  $('hero').style.display = 'none';
+  $('result').classList.add('show');
+  $('details').classList.remove('show');
+  $('moreBtn').textContent = 'Get more details';
+  $('tech').classList.remove('show');
+  $('techBtn').textContent = 'Technical analysis';
+  $('rHost').textContent = r.host;
+  const ms = r.time_ms;
+  $('rTime').textContent = 'Completed in ' + (ms < 1 ? 'under 1 ms' : ms.toFixed(1) + ' ms');
+  const v = $('rVerdict'); v.textContent = r.risk_band; v.className = 'verdict' + (r.risk_class ? ' ' + r.risk_class : '');
+  setGauge('g1','n1', Math.round(r.score)); setGauge('g2','n2', Math.round(r.closeness));
+  $('signals').innerHTML = r.signals.map(s => `<li><span>${s.label}</span><span>${s.points ? '+' + s.points : '—'}</span></li>`).join('');
+  $('cSub').textContent = r.host; $('cRef').textContent = r.closest;
+  $('tEv').textContent = r.evidence_text;
+  const m = r.metrics || {};
+  $('tSim').innerHTML = `<li>Levenshtein: ${m.levenshtein ?? '—'}</li><li>Jaro Winkler: ${m.jaro_winkler ?? '—'}</li><li>Ngram: ${m.ngram ?? '—'}</li><li>Confusable: ${m.confusable ?? '—'}</li>`;
+  $('tId').innerHTML = `<li>Model: <code>${r.model}</code></li><li>References: <code>${r.references}</code></li><li>Match type: <code>${r.match_type}</code></li>`;
+  $('tLimit').textContent = r.limitation;
+});
+$('moreBtn').addEventListener('click', () => {
+  const d = $('details'); d.classList.toggle('show');
+  $('moreBtn').textContent = d.classList.contains('show') ? 'Hide details' : 'Get more details';
+});
+$('techBtn').addEventListener('click', () => {
+  const d = $('tech'); d.classList.toggle('show');
+  $('techBtn').textContent = d.classList.contains('show') ? 'Hide technical analysis' : 'Technical analysis';
+});
+$('newBtn').addEventListener('click', () => {
+  $('result').classList.remove('show'); $('hero').style.display = '';
+  $('urlInput').value = ''; $('urlInput').focus();
+});
+function download(name, text, type){
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], {type}));
+  a.download = name; a.click(); URL.revokeObjectURL(a.href);
+}
+$('dlBtn').addEventListener('click', () => {
+  if(!current) return;
+  download('phishguard-report.json', JSON.stringify({ ...current, created: new Date().toISOString() }, null, 2), 'application/json');
+});
+
+/* ---------- Team photos ----------
+   Put photos in an "images" folder next to this page using these file names (.jpg),
+   or click any box on the Team page to pick a photo from your computer. */
+const MEMBERS = [
+  ['Aurovind Maharana','aurovind-maharana'], ['Kalahasti Sai Dhanush','kalahasti-sai-dhanush'],
+  ['Pritam Mohanty','pritam-mohanty'], ['Manas Panigrahi','manas-panigrahi']
+];
+$('members').innerHTML = MEMBERS.map(([n,f]) => {
+  const ini = n.split(' ').map(w => w[0]).slice(0,2).join('');
+  return `<div class="member"><label class="photo" title="Add photo of ${n}">
+    <img alt="${n}" src="${'/static/images/' + f + '.jpg'}"><span class="ph">${ini}<small>Add photo</small></span>
+    <input type="file" accept="image/*" hidden></label><div class="mname">${n}</div></div>`;
+}).join('');
+document.querySelectorAll('.photo').forEach(box => {
+  const img = box.querySelector('img'), inp = box.querySelector('input');
+  img.addEventListener('load', () => box.classList.add('has'));
+  img.addEventListener('error', () => box.classList.remove('has'));
+  inp.addEventListener('change', () => {
+    const f = inp.files[0]; if(!f) return;
+    const rd = new FileReader(); rd.onload = () => { img.src = rd.result; }; rd.readAsDataURL(f);
+  });
+});
+
+/* ---------- Batch scan UI ---------- */
+let batchRows = [];
+$('batchBtn').addEventListener('click', async () => {
+  const lines = $('batchInput').value.split('\n').map(s => s.trim()).filter(Boolean);
+  const body = document.querySelector('#batchTable tbody');
+  $('batchErr').textContent = '';
+  if(!lines.length){ $('batchErr').textContent = 'Enter at least one URL, one per line.'; return; }
+  $('batchBtn').disabled = true;
+  $('batchBtn').textContent = 'Analyzing...';
+  let outcome;
+  try {
+    outcome = await analyzeBatch(lines);
+  } catch (err) {
+    outcome = { ok:false, error: 'Could not reach the analysis service. Please try again.' };
+  }
+  $('batchBtn').disabled = false;
+  $('batchBtn').textContent = 'Analyze all';
+  if(!outcome.ok){ $('batchErr').textContent = outcome.error; return; }
+  batchRows = outcome.data.rows;
+  body.innerHTML = batchRows.map(r => r.valid
+    ? `<tr><td>${r.input.replace(/</g,'&lt;')}</td><td>${r.score}</td><td>${r.closest}</td><td class="r">${r.risk_band}</td></tr>`
+    : `<tr><td>${r.input.replace(/</g,'&lt;')}</td><td colspan="3">Invalid URL${r.error ? ' — ' + r.error : ''}</td></tr>`).join('');
+  $('batchTable').classList.toggle('show', batchRows.length > 0);
+  $('batchDl').style.display = batchRows.length ? '' : 'none';
+  if(outcome.data.truncated) $('batchErr').textContent = `Only the first ${outcome.data.row_limit} URLs were processed.`;
+});
+$('batchDl').addEventListener('click', () => {
+  const csv = ['url,phishing_score,closest_site,result'].concat(
+    batchRows.map(r => r.valid ? `"${r.input}",${r.score},${r.closest},${r.risk_band}` : `"${r.input}",,,invalid`)
+  ).join('\n');
+  download('phishguard-batch.csv', csv, 'text/csv');
+});
+</script>
+</body>
+</html>

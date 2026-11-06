@@ -1,0 +1,201 @@
+reference_id,brand_name,canonical_domain,category,region,source_name,source_url,source_rank,verified_at,verification_status,active
+REF0001,State Bank of India,sbi.bank.in,finance,india,Official website,https://sbi.bank.in/,,2026-11-04,verified,true
+REF0002,HDFC Bank,hdfc.bank.in,finance,india,Official website,https://hdfc.bank.in/,,2026-11-04,verified,true
+REF0003,ICICI Bank,icici.bank.in,finance,india,Official website,https://icici.bank.in/,,2026-11-04,verified,true
+REF0004,Axis Bank,axis.bank.in,finance,india,Official website,https://axis.bank.in/,,2026-11-04,verified,true
+REF0005,Kotak Mahindra Bank,kotak.bank.in,finance,india,Official website,https://kotak.bank.in/,,2026-11-04,verified,true
+REF0006,Punjab National Bank,pnb.bank.in,finance,india,Official website,https://pnb.bank.in/,,2026-11-04,verified,true
+REF0007,Bank of Baroda,bankofbaroda.bank.in,finance,india,Official website,https://bankofbaroda.bank.in/,,2026-11-04,verified,true
+REF0008,Canara Bank,canarabank.bank.in,finance,india,Official website,https://canarabank.bank.in/,,2026-11-04,verified,true
+REF0009,Union Bank of India,unionbankofindia.bank.in,finance,india,Official website,https://unionbankofindia.bank.in/,,2026-11-04,verified,true
+REF0010,Bank of India,bankofindia.bank.in,finance,india,Official website,https://bankofindia.bank.in/,,2026-11-04,verified,true
+REF0011,Indian Bank,indianbank.bank.in,finance,india,Official website,https://indianbank.bank.in/,,2026-11-04,verified,true
+REF0012,Central Bank of India,centralbank.bank.in,finance,india,Official website,https://centralbank.bank.in/,,2026-11-04,verified,true
+REF0013,IDBI Bank,idbi.bank.in,finance,india,Official website,https://idbi.bank.in/,,2026-11-04,verified,true
+REF0014,IndusInd Bank,indusind.bank.in,finance,india,Official website,https://indusind.bank.in/,,2026-11-04,verified,true
+REF0015,YES Bank,yes.bank.in,finance,india,Official website,https://yes.bank.in/,,2026-11-04,verified,true
+REF0016,Federal Bank,federal.bank.in,finance,india,Official website,https://federal.bank.in/,,2026-11-04,verified,true
+REF0017,IDFC FIRST Bank,idfcfirst.bank.in,finance,india,Official website,https://idfcfirst.bank.in/,,2026-11-04,verified,true
+REF0018,AU Small Finance Bank,au.bank.in,finance,india,Official website,https://au.bank.in/,,2026-11-04,verified,true
+REF0019,Bandhan Bank,bandhan.bank.in,finance,india,Official website,https://bandhan.bank.in/,,2026-11-04,verified,true
+REF0020,RBL Bank,rbl.bank.in,finance,india,Official website,https://rbl.bank.in/,,2026-11-04,verified,true
+REF0021,UCO Bank,uco.bank.in,finance,india,Official website,https://uco.bank.in/,,2026-11-04,verified,true
+REF0022,Indian Overseas Bank,iob.bank.in,finance,india,Official website,https://iob.bank.in/,,2026-11-04,verified,true
+REF0023,Bank of Maharashtra,bankofmaharashtra.bank.in,finance,india,Official website,https://bankofmaharashtra.bank.in/,,2026-11-04,verified,true
+REF0024,South Indian Bank,southindianbank.bank.in,finance,india,Official website,https://southindianbank.bank.in/,,2026-11-04,verified,true
+REF0025,Paytm,paytm.com,finance,india,Official website,https://paytm.com/,,2026-11-04,verified,true
+REF0026,PhonePe,phonepe.com,finance,india,Official website,https://phonepe.com/,,2026-11-04,verified,true
+REF0027,Razorpay,razorpay.com,finance,india,Official website,https://razorpay.com/,,2026-11-04,verified,true
+REF0028,National Payments Corporation of India,npci.org.in,finance,india,Official website,https://npci.org.in/,,2026-11-04,verified,true
+REF0029,Bajaj Finserv,bajajfinserv.in,finance,india,Official website,https://bajajfinserv.in/,,2026-11-04,verified,true
+REF0030,Reserve Bank of India,rbi.org.in,finance,india,Official website,https://rbi.org.in/,,2026-11-04,verified,true
+REF0031,Bank of America,bankofamerica.com,finance,global,Official website,https://bankofamerica.com/,,2026-11-04,verified,true
+REF0032,Chase,chase.com,finance,global,Official website,https://chase.com/,,2026-11-04,verified,true
+REF0033,Wells Fargo,wellsfargo.com,finance,global,Official website,https://wellsfargo.com/,,2026-11-04,verified,true
+REF0034,Citi,citi.com,finance,global,Official website,https://citi.com/,,2026-11-04,verified,true
+REF0035,Capital One,capitalone.com,finance,global,Official website,https://capitalone.com/,,2026-11-04,verified,true
+REF0036,American Express,americanexpress.com,finance,global,Official website,https://americanexpress.com/,,2026-11-04,verified,true
+REF0037,PayPal,paypal.com,finance,global,Official website,https://paypal.com/,,2026-11-04,verified,true
+REF0038,Visa,visa.com,finance,global,Official website,https://visa.com/,,2026-11-04,verified,true
+REF0039,Mastercard,mastercard.com,finance,global,Official website,https://mastercard.com/,,2026-11-04,verified,true
+REF0040,HSBC,hsbc.com,finance,global,Official website,https://hsbc.com/,,2026-11-04,verified,true
+REF0041,Barclays,barclays.co.uk,finance,global,Official website,https://barclays.co.uk/,,2026-11-04,verified,true
+REF0042,Santander,santander.com,finance,global,Official website,https://santander.com/,,2026-11-04,verified,true
+REF0043,Deutsche Bank,db.com,finance,global,Official website,https://db.com/,,2026-11-04,verified,true
+REF0044,UBS,ubs.com,finance,global,Official website,https://ubs.com/,,2026-11-04,verified,true
+REF0045,Goldman Sachs,goldmansachs.com,finance,global,Official website,https://goldmansachs.com/,,2026-11-04,verified,true
+REF0046,Morgan Stanley,morganstanley.com,finance,global,Official website,https://morganstanley.com/,,2026-11-04,verified,true
+REF0047,Revolut,revolut.com,finance,global,Official website,https://revolut.com/,,2026-11-04,verified,true
+REF0048,Wise,wise.com,finance,global,Official website,https://wise.com/,,2026-11-04,verified,true
+REF0049,Stripe,stripe.com,finance,global,Official website,https://stripe.com/,,2026-11-04,verified,true
+REF0050,Coinbase,coinbase.com,finance,global,Official website,https://coinbase.com/,,2026-11-04,verified,true
+REF0051,National Portal of India,india.gov.in,government,india,Official website,https://india.gov.in/,,2026-11-04,verified,true
+REF0052,Unique Identification Authority of India,uidai.gov.in,government,india,Official website,https://uidai.gov.in/,,2026-11-04,verified,true
+REF0053,Income Tax Department,incometax.gov.in,government,india,Official website,https://www.incometax.gov.in/,,2026-11-04,verified,true
+REF0054,Goods and Services Tax,gst.gov.in,government,india,Official website,https://gst.gov.in/,,2026-11-04,verified,true
+REF0055,Employees Provident Fund Organisation,epfo.gov.in,government,india,Official website,https://epfo.gov.in/,,2026-11-04,verified,true
+REF0056,Passport Seva,passportindia.gov.in,government,india,Official website,https://passportindia.gov.in/,,2026-11-04,verified,true
+REF0057,DigiLocker,digilocker.gov.in,government,india,Official website,https://digilocker.gov.in/,,2026-11-04,verified,true
+REF0058,Ministry of Corporate Affairs,mca.gov.in,government,india,Official website,https://mca.gov.in/,,2026-11-04,verified,true
+REF0059,Election Commission of India,eci.gov.in,government,india,Official website,https://eci.gov.in/,,2026-11-04,verified,true
+REF0060,Ministry of External Affairs,mea.gov.in,government,india,Official website,https://mea.gov.in/,,2026-11-04,verified,true
+REF0061,Indian Railways,indianrailways.gov.in,government,india,Official website,https://indianrailways.gov.in/,,2026-11-04,verified,true
+REF0062,Parivahan Sewa,parivahan.gov.in,government,india,Official website,https://parivahan.gov.in/,,2026-11-04,verified,true
+REF0063,Ministry of Home Affairs,mha.gov.in,government,india,Official website,https://mha.gov.in/,,2026-11-04,verified,true
+REF0064,Ministry of Education,education.gov.in,government,india,Official website,https://education.gov.in/,,2026-11-04,verified,true
+REF0065,National Scholarship Portal,scholarships.gov.in,government,india,Official website,https://scholarships.gov.in/,,2026-11-04,verified,true
+REF0066,MyGov India,mygov.in,government,india,Official website,https://mygov.in/,,2026-11-04,verified,true
+REF0067,National Cyber Crime Reporting Portal,cybercrime.gov.in,government,india,Official website,https://cybercrime.gov.in/,,2026-11-04,verified,true
+REF0068,PM-KISAN,pmkisan.gov.in,government,india,Official website,https://pmkisan.gov.in/,,2026-11-04,verified,true
+REF0069,e-Shram,eshram.gov.in,government,india,Official website,https://eshram.gov.in/,,2026-11-04,verified,true
+REF0070,National Career Service,ncs.gov.in,government,india,Official website,https://ncs.gov.in/,,2026-11-04,verified,true
+REF0071,USA.gov,usa.gov,government,global,Official website,https://usa.gov/,,2026-11-04,verified,true
+REF0072,Internal Revenue Service,irs.gov,government,global,Official website,https://irs.gov/,,2026-11-04,verified,true
+REF0073,Government of Canada,canada.ca,government,global,Official website,https://canada.ca/,,2026-11-04,verified,true
+REF0074,Australian Taxation Office,ato.gov.au,government,global,Official website,https://ato.gov.au/,,2026-11-04,verified,true
+REF0075,Singpass,singpass.gov.sg,government,global,Official website,https://www.singpass.gov.sg/,,2026-11-04,verified,true
+REF0076,Flipkart,flipkart.com,e-commerce,india,Official website,https://flipkart.com/,,2026-11-04,verified,true
+REF0077,Myntra,myntra.com,e-commerce,india,Official website,https://myntra.com/,,2026-11-04,verified,true
+REF0078,Meesho,meesho.com,e-commerce,india,Official website,https://meesho.com/,,2026-11-04,verified,true
+REF0079,IndiaMART,indiamart.com,e-commerce,india,Official website,https://indiamart.com/,,2026-11-04,verified,true
+REF0080,Tata CLiQ,tatacliq.com,e-commerce,india,Official website,https://tatacliq.com/,,2026-11-04,verified,true
+REF0081,Reliance Digital,reliancedigital.in,e-commerce,india,Official website,https://reliancedigital.in/,,2026-11-04,verified,true
+REF0082,JioMart,jiomart.com,e-commerce,india,Official website,https://jiomart.com/,,2026-11-04,verified,true
+REF0083,Nykaa,nykaa.com,e-commerce,india,Official website,https://nykaa.com/,,2026-11-04,verified,true
+REF0084,BigBasket,bigbasket.com,e-commerce,india,Official website,https://bigbasket.com/,,2026-11-04,verified,true
+REF0085,Snapdeal,snapdeal.com,e-commerce,india,Official website,https://snapdeal.com/,,2026-11-04,verified,true
+REF0086,Croma,croma.com,e-commerce,india,Official website,https://croma.com/,,2026-11-04,verified,true
+REF0087,FirstCry,firstcry.com,e-commerce,india,Official website,https://firstcry.com/,,2026-11-04,verified,true
+REF0088,Amazon,amazon.com,e-commerce,global,Official website,https://amazon.com/,,2026-11-04,verified,true
+REF0089,eBay,ebay.com,e-commerce,global,Official website,https://ebay.com/,,2026-11-04,verified,true
+REF0090,Walmart,walmart.com,e-commerce,global,Official website,https://walmart.com/,,2026-11-04,verified,true
+REF0091,AliExpress,aliexpress.com,e-commerce,global,Official website,https://aliexpress.com/,,2026-11-04,verified,true
+REF0092,Alibaba,alibaba.com,e-commerce,global,Official website,https://alibaba.com/,,2026-11-04,verified,true
+REF0093,Etsy,etsy.com,e-commerce,global,Official website,https://etsy.com/,,2026-11-04,verified,true
+REF0094,Rakuten,rakuten.com,e-commerce,global,Official website,https://rakuten.com/,,2026-11-04,verified,true
+REF0095,Temu,temu.com,e-commerce,global,Official website,https://temu.com/,,2026-11-04,verified,true
+REF0096,SHEIN,shein.com,e-commerce,global,Official website,https://shein.com/,,2026-11-04,verified,true
+REF0097,Mercado Libre,mercadolibre.com,e-commerce,global,Official website,https://mercadolibre.com/,,2026-11-04,verified,true
+REF0098,Target,target.com,e-commerce,global,Official website,https://target.com/,,2026-11-04,verified,true
+REF0099,Best Buy,bestbuy.com,e-commerce,global,Official website,https://bestbuy.com/,,2026-11-04,verified,true
+REF0100,Costco,costco.com,e-commerce,global,Official website,https://costco.com/,,2026-11-04,verified,true
+REF0101,ShareChat,sharechat.com,social,india,Official website,https://sharechat.com/,,2026-11-04,verified,true
+REF0102,Moj,mojapp.in,social,india,Official website,https://mojapp.in/,,2026-11-04,verified,true
+REF0103,Josh,myjosh.in,social,india,Official website,https://myjosh.in/,,2026-11-04,verified,true
+REF0104,Facebook,facebook.com,social,global,Official website,https://facebook.com/,,2026-11-04,verified,true
+REF0105,Instagram,instagram.com,social,global,Official website,https://instagram.com/,,2026-11-04,verified,true
+REF0106,WhatsApp,whatsapp.com,social,global,Official website,https://whatsapp.com/,,2026-11-04,verified,true
+REF0107,X,x.com,social,global,Official website,https://x.com/,,2026-11-04,verified,true
+REF0108,LinkedIn,linkedin.com,social,global,Official website,https://linkedin.com/,,2026-11-04,verified,true
+REF0109,TikTok,tiktok.com,social,global,Official website,https://tiktok.com/,,2026-11-04,verified,true
+REF0110,Snapchat,snapchat.com,social,global,Official website,https://snapchat.com/,,2026-11-04,verified,true
+REF0111,Reddit,reddit.com,social,global,Official website,https://reddit.com/,,2026-11-04,verified,true
+REF0112,Pinterest,pinterest.com,social,global,Official website,https://pinterest.com/,,2026-11-04,verified,true
+REF0113,Discord,discord.com,social,global,Official website,https://discord.com/,,2026-11-04,verified,true
+REF0114,Telegram,telegram.org,social,global,Official website,https://telegram.org/,,2026-11-04,verified,true
+REF0115,WeChat,wechat.com,social,global,Official website,https://wechat.com/,,2026-11-04,verified,true
+REF0116,LINE,line.me,social,global,Official website,https://line.me/,,2026-11-04,verified,true
+REF0117,Tumblr,tumblr.com,social,global,Official website,https://tumblr.com/,,2026-11-04,verified,true
+REF0118,Quora,quora.com,social,global,Official website,https://quora.com/,,2026-11-04,verified,true
+REF0119,Twitch,twitch.tv,social,global,Official website,https://twitch.tv/,,2026-11-04,verified,true
+REF0120,Threads,threads.net,social,global,Official website,https://www.threads.net/,,2026-11-04,verified,true
+REF0121,India Post,indiapost.gov.in,delivery,india,Official website,https://indiapost.gov.in/,,2026-11-04,verified,true
+REF0122,Delhivery,delhivery.com,delivery,india,Official website,https://delhivery.com/,,2026-11-04,verified,true
+REF0123,Blue Dart,bluedart.com,delivery,india,Official website,https://bluedart.com/,,2026-11-04,verified,true
+REF0124,DTDC,dtdc.com,delivery,india,Official website,https://dtdc.com/,,2026-11-04,verified,true
+REF0125,Ekart Logistics,ekartlogistics.com,delivery,india,Official website,https://ekartlogistics.com/,,2026-11-04,verified,true
+REF0126,Shadowfax,shadowfax.in,delivery,india,Official website,https://shadowfax.in/,,2026-11-04,verified,true
+REF0127,XpressBees,xpressbees.com,delivery,india,Official website,https://xpressbees.com/,,2026-11-04,verified,true
+REF0128,DHL,dhl.com,delivery,global,Official website,https://dhl.com/,,2026-11-04,verified,true
+REF0129,FedEx,fedex.com,delivery,global,Official website,https://fedex.com/,,2026-11-04,verified,true
+REF0130,UPS,ups.com,delivery,global,Official website,https://ups.com/,,2026-11-04,verified,true
+REF0131,USPS,usps.com,delivery,global,Official website,https://usps.com/,,2026-11-04,verified,true
+REF0132,Royal Mail,royalmail.com,delivery,global,Official website,https://royalmail.com/,,2026-11-04,verified,true
+REF0133,Canada Post,canadapost-postescanada.ca,delivery,global,Official website,https://canadapost-postescanada.ca/,,2026-11-04,verified,true
+REF0134,Australia Post,auspost.com.au,delivery,global,Official website,https://auspost.com.au/,,2026-11-04,verified,true
+REF0135,Evri,evri.com,delivery,global,Official website,https://evri.com/,,2026-11-04,verified,true
+REF0136,IRCTC,irctc.co.in,travel,india,Official website,https://irctc.co.in/,,2026-11-04,verified,true
+REF0137,Air India,airindia.com,travel,india,Official website,https://airindia.com/,,2026-11-04,verified,true
+REF0138,IndiGo,goindigo.in,travel,india,Official website,https://goindigo.in/,,2026-11-04,verified,true
+REF0139,Akasa Air,akasaair.com,travel,india,Official website,https://akasaair.com/,,2026-11-04,verified,true
+REF0140,SpiceJet,spicejet.com,travel,india,Official website,https://spicejet.com/,,2026-11-04,verified,true
+REF0141,MakeMyTrip,makemytrip.com,travel,india,Official website,https://makemytrip.com/,,2026-11-04,verified,true
+REF0142,Cleartrip,cleartrip.com,travel,india,Official website,https://cleartrip.com/,,2026-11-04,verified,true
+REF0143,EaseMyTrip,easemytrip.com,travel,india,Official website,https://easemytrip.com/,,2026-11-04,verified,true
+REF0144,Yatra,yatra.com,travel,india,Official website,https://yatra.com/,,2026-11-04,verified,true
+REF0145,redBus,redbus.in,travel,india,Official website,https://redbus.in/,,2026-11-04,verified,true
+REF0146,Booking.com,booking.com,travel,global,Official website,https://booking.com/,,2026-11-04,verified,true
+REF0147,Airbnb,airbnb.com,travel,global,Official website,https://airbnb.com/,,2026-11-04,verified,true
+REF0148,Expedia,expedia.com,travel,global,Official website,https://expedia.com/,,2026-11-04,verified,true
+REF0149,Tripadvisor,tripadvisor.com,travel,global,Official website,https://tripadvisor.com/,,2026-11-04,verified,true
+REF0150,Uber,uber.com,travel,global,Official website,https://uber.com/,,2026-11-04,verified,true
+REF0151,Lyft,lyft.com,travel,global,Official website,https://lyft.com/,,2026-11-04,verified,true
+REF0152,Emirates,emirates.com,travel,global,Official website,https://emirates.com/,,2026-11-04,verified,true
+REF0153,Qatar Airways,qatarairways.com,travel,global,Official website,https://qatarairways.com/,,2026-11-04,verified,true
+REF0154,British Airways,britishairways.com,travel,global,Official website,https://britishairways.com/,,2026-11-04,verified,true
+REF0155,Singapore Airlines,singaporeair.com,travel,global,Official website,https://singaporeair.com/,,2026-11-04,verified,true
+REF0156,Central Board of Secondary Education,cbse.gov.in,education,india,Official website,https://cbse.gov.in/,,2026-11-04,verified,true
+REF0157,National Testing Agency,nta.ac.in,education,india,Official website,https://nta.ac.in/,,2026-11-04,verified,true
+REF0158,University Grants Commission,ugc.gov.in,education,india,Official website,https://ugc.gov.in/,,2026-11-04,verified,true
+REF0159,All India Council for Technical Education,aicte-india.org,education,india,Official website,https://aicte-india.org/,,2026-11-04,verified,true
+REF0160,SWAYAM,swayam.gov.in,education,india,Official website,https://swayam.gov.in/,,2026-11-04,verified,true
+REF0161,DIKSHA,diksha.gov.in,education,india,Official website,https://diksha.gov.in/,,2026-11-04,verified,true
+REF0162,NCERT,ncert.nic.in,education,india,Official website,https://ncert.nic.in/,,2026-11-04,verified,true
+REF0163,IIT Bombay,iitb.ac.in,education,india,Official website,https://iitb.ac.in/,,2026-11-04,verified,true
+REF0164,IIT Delhi,iitd.ac.in,education,india,Official website,https://iitd.ac.in/,,2026-11-04,verified,true
+REF0165,IIT Kanpur,iitk.ac.in,education,india,Official website,https://iitk.ac.in/,,2026-11-04,verified,true
+REF0166,Indira Gandhi National Open University,ignou.ac.in,education,india,Official website,https://ignou.ac.in/,,2026-11-04,verified,true
+REF0167,University of Delhi,du.ac.in,education,india,Official website,https://du.ac.in/,,2026-11-04,verified,true
+REF0168,Coursera,coursera.org,education,global,Official website,https://coursera.org/,,2026-11-04,verified,true
+REF0169,edX,edx.org,education,global,Official website,https://edx.org/,,2026-11-04,verified,true
+REF0170,Khan Academy,khanacademy.org,education,global,Official website,https://khanacademy.org/,,2026-11-04,verified,true
+REF0171,Udemy,udemy.com,education,global,Official website,https://udemy.com/,,2026-11-04,verified,true
+REF0172,Duolingo,duolingo.com,education,global,Official website,https://duolingo.com/,,2026-11-04,verified,true
+REF0173,Harvard University,harvard.edu,education,global,Official website,https://harvard.edu/,,2026-11-04,verified,true
+REF0174,Massachusetts Institute of Technology,mit.edu,education,global,Official website,https://mit.edu/,,2026-11-04,verified,true
+REF0175,Stanford University,stanford.edu,education,global,Official website,https://stanford.edu/,,2026-11-04,verified,true
+REF0176,Jio,jio.com,technology,india,Official website,https://jio.com/,,2026-11-04,verified,true
+REF0177,Infosys,infosys.com,technology,india,Official website,https://infosys.com/,,2026-11-04,verified,true
+REF0178,Tata Consultancy Services,tcs.com,technology,india,Official website,https://tcs.com/,,2026-11-04,verified,true
+REF0179,Wipro,wipro.com,technology,india,Official website,https://wipro.com/,,2026-11-04,verified,true
+REF0180,HCLTech,hcltech.com,technology,india,Official website,https://hcltech.com/,,2026-11-04,verified,true
+REF0181,Zoho,zoho.com,technology,india,Official website,https://zoho.com/,,2026-11-04,verified,true
+REF0182,Freshworks,freshworks.com,technology,india,Official website,https://freshworks.com/,,2026-11-04,verified,true
+REF0183,Tech Mahindra,techmahindra.com,technology,india,Official website,https://techmahindra.com/,,2026-11-04,verified,true
+REF0184,Google,google.com,technology,global,Official website,https://google.com/,,2026-11-04,verified,true
+REF0185,Microsoft,microsoft.com,technology,global,Official website,https://microsoft.com/,,2026-11-04,verified,true
+REF0186,Apple,apple.com,technology,global,Official website,https://apple.com/,,2026-11-04,verified,true
+REF0187,Adobe,adobe.com,technology,global,Official website,https://adobe.com/,,2026-11-04,verified,true
+REF0188,IBM,ibm.com,technology,global,Official website,https://ibm.com/,,2026-11-04,verified,true
+REF0189,Oracle,oracle.com,technology,global,Official website,https://oracle.com/,,2026-11-04,verified,true
+REF0190,Intel,intel.com,technology,global,Official website,https://intel.com/,,2026-11-04,verified,true
+REF0191,NVIDIA,nvidia.com,technology,global,Official website,https://nvidia.com/,,2026-11-04,verified,true
+REF0192,GitHub,github.com,technology,global,Official website,https://github.com/,,2026-11-04,verified,true
+REF0193,Dropbox,dropbox.com,technology,global,Official website,https://dropbox.com/,,2026-11-04,verified,true
+REF0194,Zoom,zoom.com,technology,global,Official website,https://zoom.com/,,2026-11-04,verified,true
+REF0195,Slack,slack.com,technology,global,Official website,https://slack.com/,,2026-11-04,verified,true
+REF0196,Salesforce,salesforce.com,technology,global,Official website,https://salesforce.com/,,2026-11-04,verified,true
+REF0197,Cloudflare,cloudflare.com,technology,global,Official website,https://cloudflare.com/,,2026-11-04,verified,true
+REF0198,OpenAI,openai.com,technology,global,Official website,https://openai.com/,,2026-11-04,verified,true
+REF0199,Samsung,samsung.com,technology,global,Official website,https://samsung.com/,,2026-11-04,verified,true
+REF0200,Sony,sony.com,technology,global,Official website,https://sony.com/,,2026-11-04,verified,true

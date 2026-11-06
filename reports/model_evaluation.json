@@ -1,0 +1,97 @@
+{
+  "candidate_metrics": {
+    "dummy": {
+      "pr_auc": 0.4270722691931852,
+      "roc_auc": 0.5
+    },
+    "logistic_regression": {
+      "pr_auc": 0.9989362112215301,
+      "roc_auc": 0.9987033646764669
+    },
+    "random_forest": {
+      "pr_auc": 0.9984252035632599,
+      "roc_auc": 0.9981884486174304
+    },
+    "xgboost": {
+      "pr_auc": 0.99888477910395,
+      "roc_auc": 0.9985450186283829
+    }
+  },
+  "dataset_rows_after_cleaning": 235370,
+  "feature_schema_version": "url-lexical-v1",
+  "model_version": "url-model-7bb3106f2411",
+  "no_group_leakage": true,
+  "removed_conflicting_url_count": 0,
+  "selected_model": "logistic_regression",
+  "split_group_counts": {
+    "calibration": 17603,
+    "test": 17283,
+    "train": 123016,
+    "validation": 17607
+  },
+  "split_row_counts": {
+    "calibration": 23537,
+    "test": 23537,
+    "train": 164759,
+    "validation": 23537
+  },
+  "test_metrics": {
+    "brier_score": 0.002086007545403417,
+    "calibration": [
+      {
+        "fraction_positive": 0.0008496176720475786,
+        "mean_predicted": 0.0005686190546530406
+      },
+      {
+        "fraction_positive": 0.0012738853503184713,
+        "mean_predicted": 0.0017426082295230326
+      },
+      {
+        "fraction_positive": 0.0008503401360544217,
+        "mean_predicted": 0.003827225259162459
+      },
+      {
+        "fraction_positive": 0.0,
+        "mean_predicted": 0.004507032786210265
+      },
+      {
+        "fraction_positive": 0.001282051282051282,
+        "mean_predicted": 0.005998724005924324
+      },
+      {
+        "fraction_positive": 0.26712037430880475,
+        "mean_predicted": 0.2689617355660885
+      },
+      {
+        "fraction_positive": 1.0,
+        "mean_predicted": 0.9998914014252026
+      },
+      {
+        "fraction_positive": 1.0,
+        "mean_predicted": 0.9999974285045464
+      },
+      {
+        "fraction_positive": 1.0,
+        "mean_predicted": 0.9999997090669084
+      },
+      {
+        "fraction_positive": 1.0,
+        "mean_predicted": 0.9999999990166597
+      }
+    ],
+    "confusion_matrix": {
+      "fn": 30,
+      "fp": 65,
+      "tn": 13420,
+      "tp": 10022
+    },
+    "f1": 0.9952827846467054,
+    "f2": 0.9963217019584452,
+    "pr_auc": 0.9994732116576489,
+    "precision": 0.9935560622583524,
+    "recall": 0.9970155192996418,
+    "roc_auc": 0.9993167232283118,
+    "threshold": 0.10569820551254133
+  },
+  "threshold": 0.10569820551254133
+}
