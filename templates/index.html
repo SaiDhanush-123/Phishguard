@@ -8,7 +8,7 @@
 :root{
   --blue:#1d4ed8; --blue-dark:#1e3a8a; --blue-soft:#e6eefe; --blue-line:#c1d3fa;
   --ink:#0f172a; --muted:#5b6b83; --line:#d9e3f5; --bg:#f1f6ff; --surface:#ffffff;
-  --btn:#1d4ed8; --btn-hover:#1e3a8a; --on-btn:#ffffff; --high:#1e3a8a; --caution:#8a5b00; --caution-soft:#fdf3e0;
+  --btn:#1d4ed8; --btn-hover:#1e3a8a; --on-btn:#ffffff; --high:#dc2626; --high-soft:#fef2f2; --caution:#8a5b00; --caution-soft:#fdf3e0; --low:#16a34a; --low-soft:#f0fdf4;
   color-scheme:light;
   --font:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
 }
@@ -16,7 +16,7 @@
   color-scheme:dark;
   --blue:#7aa6ff; --blue-dark:#b3ccff; --blue-soft:#15223f; --blue-line:#2b4377;
   --ink:#e6edf8; --muted:#94a3b8; --line:#22304d; --bg:#0b1220; --surface:#111a2e;
-  --btn:#3b6df0; --btn-hover:#5683f5; --on-btn:#ffffff; --high:#3b6df0; --caution:#e8b559; --caution-soft:#2b2210;
+  --btn:#3b6df0; --btn-hover:#5683f5; --on-btn:#ffffff; --high:#ef4444; --high-soft:#450a0a; --caution:#e8b559; --caution-soft:#2b2210; --low:#22c55e; --low-soft:#052e16;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -69,8 +69,9 @@ h1{font-size:2.2rem;font-weight:600;color:var(--blue-dark);letter-spacing:-.5px}
 #result.show{display:block}
 .host{font-size:1.25rem;font-weight:600;word-break:break-all}
 .verdict{display:inline-block;margin-top:8px;padding:3px 12px;border-radius:99px;font-size:.85rem;font-weight:600;border:1px solid var(--blue-line);background:var(--blue-soft);color:var(--blue)}
-.verdict.high{background:var(--high);border-color:var(--high);color:var(--on-btn)}
+.verdict.high{background:var(--high-soft);border-color:var(--high);color:var(--high)}
 .verdict.caution{background:var(--caution-soft);border-color:var(--caution);color:var(--caution)}
+.verdict.low{background:var(--low-soft);border-color:var(--low);color:var(--low)}
 .took{margin-top:8px;font-size:.85rem;color:var(--muted)}
 .gauges{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin:28px 0 8px}
 .gauge{width:170px}
@@ -78,6 +79,9 @@ h1{font-size:2.2rem;font-weight:600;color:var(--blue-dark);letter-spacing:-.5px}
 .gauge .track{stroke:var(--line)}
 .gauge .fill{stroke:var(--blue);transition:stroke-dashoffset .9s ease}
 .gauge.dark .fill{stroke:var(--blue-dark)}
+.gauge.high .fill{stroke:var(--high)}
+.gauge.caution .fill{stroke:var(--caution)}
+.gauge.low .fill{stroke:var(--low)}
 .gauge .num{font-size:30px;font-weight:600;fill:var(--ink)}
 .gauge .sub{font-size:10px;fill:var(--muted)}
 .gauge p{font-size:.85rem;color:var(--muted);margin-top:6px}
@@ -155,7 +159,7 @@ td.r{color:var(--blue);font-weight:600}
   <button data-view="single" aria-current="true">Single scan</button>
   <button data-view="batch">Batch scan</button>
   <button data-view="method">Methodology</button>
-  <!-- <button data-view="team">Team</button> -->
+  <!--<button data-view="team">Team</button>-->
 </nav>
 
 <main>
@@ -177,7 +181,7 @@ td.r{color:var(--blue);font-weight:600}
       <div class="took" id="rTime"></div>
 
       <div class="gauges">
-        <div class="gauge dark">
+        <div class="gauge dark" id="gauge1">
           <svg viewBox="0 0 120 120" aria-hidden="true">
             <circle class="track" cx="60" cy="60" r="48" fill="none" stroke-width="10"/>
             <circle class="fill" id="g1" cx="60" cy="60" r="48" fill="none" stroke-width="10" stroke-linecap="round" transform="rotate(-90 60 60)"/>
@@ -186,7 +190,7 @@ td.r{color:var(--blue);font-weight:600}
           </svg>
           <p>Phishing score</p>
         </div>
-        <div class="gauge">
+        <div class="gauge" id="gauge2">
           <svg viewBox="0 0 120 120" aria-hidden="true">
             <circle class="track" cx="60" cy="60" r="48" fill="none" stroke-width="10"/>
             <circle class="fill" id="g2" cx="60" cy="60" r="48" fill="none" stroke-width="10" stroke-linecap="round" transform="rotate(-90 60 60)"/>
@@ -364,6 +368,8 @@ $('scanForm').addEventListener('submit', async e => {
   const ms = r.time_ms;
   $('rTime').textContent = 'Completed in ' + (ms < 1 ? 'under 1 ms' : ms.toFixed(1) + ' ms');
   const v = $('rVerdict'); v.textContent = r.risk_band; v.className = 'verdict' + (r.risk_class ? ' ' + r.risk_class : '');
+  $('gauge1').className = 'gauge dark' + (r.risk_class ? ' ' + r.risk_class : '');
+  $('gauge2').className = 'gauge' + (r.risk_class ? ' ' + r.risk_class : '');
   setGauge('g1','n1', Math.round(r.score)); setGauge('g2','n2', Math.round(r.closeness));
   $('signals').innerHTML = r.signals.map(s => `<li><span>${s.label}</span><span>${s.points ? '+' + s.points : '—'}</span></li>`).join('');
   $('cSub').textContent = r.host; $('cRef').textContent = r.closest;
