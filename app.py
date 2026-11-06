@@ -41,7 +41,7 @@ def risk_style(risk_band: str) -> str:
         return "high"
     if risk_band == "Caution":
         return "caution"
-    return ""
+    return "low"
 
 
 def serialize_result(result: DetectionResult) -> dict[str, Any]:
